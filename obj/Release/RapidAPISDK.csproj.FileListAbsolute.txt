@@ -1,0 +1,6 @@
+c:\users\gilad\documents\visual studio 2015\Projects\RapidAPISDK\RapidAPISDK\bin\Release\RapidAPISDK.dll
+c:\users\gilad\documents\visual studio 2015\Projects\RapidAPISDK\RapidAPISDK\bin\Release\RapidAPISDK.pdb
+c:\users\gilad\documents\visual studio 2015\Projects\RapidAPISDK\RapidAPISDK\bin\Release\Newtonsoft.Json.dll
+c:\users\gilad\documents\visual studio 2015\Projects\RapidAPISDK\RapidAPISDK\bin\Release\Newtonsoft.Json.xml
+c:\users\gilad\documents\visual studio 2015\Projects\RapidAPISDK\RapidAPISDK\obj\Release\RapidAPISDK.dll
+c:\users\gilad\documents\visual studio 2015\Projects\RapidAPISDK\RapidAPISDK\obj\Release\RapidAPISDK.pdb

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>RapidAPISDK</id>
+    <version>1.0.3</version>
+    <title>RapidAPISDK</title>
+    <authors>Adi Tanami</authors>
+    <owners>Adi</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Connect to RapidAPI</description>
+    <copyright>Copyright 2017</copyright>
+    <tags>RapidAPI sdk connect</tags>
+  </metadata>
+</package>
