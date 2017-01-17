@@ -1,0 +1,8 @@
+C:\Users\gilad\Documents\Visual Studio 2015\Projects\testing\testing\bin\Release\test.exe.config
+C:\Users\gilad\Documents\Visual Studio 2015\Projects\testing\testing\bin\Release\test.exe
+C:\Users\gilad\Documents\Visual Studio 2015\Projects\testing\testing\bin\Release\test.pdb
+C:\Users\gilad\Documents\Visual Studio 2015\Projects\testing\testing\bin\Release\Newtonsoft.Json.dll
+C:\Users\gilad\Documents\Visual Studio 2015\Projects\testing\testing\bin\Release\RapidAPISDK.dll
+C:\Users\gilad\Documents\Visual Studio 2015\Projects\testing\testing\bin\Release\Newtonsoft.Json.xml
+C:\Users\gilad\Documents\Visual Studio 2015\Projects\testing\testing\obj\Release\test.exe
+C:\Users\gilad\Documents\Visual Studio 2015\Projects\testing\testing\obj\Release\test.pdb

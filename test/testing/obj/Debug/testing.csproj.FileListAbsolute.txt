@@ -1,0 +1,9 @@
+c:\users\gilad\documents\visual studio 2015\Projects\testing\testing\bin\Debug\testing.exe.config
+C:\Users\gilad\Documents\Visual Studio 2015\Projects\testing\testing\obj\Debug\testing.csprojResolveAssemblyReference.cache
+C:\Users\gilad\Documents\Visual Studio 2015\Projects\testing\testing\bin\Debug\testing.exe
+C:\Users\gilad\Documents\Visual Studio 2015\Projects\testing\testing\bin\Debug\testing.pdb
+C:\Users\gilad\Documents\Visual Studio 2015\Projects\testing\testing\obj\Debug\testing.exe
+C:\Users\gilad\Documents\Visual Studio 2015\Projects\testing\testing\obj\Debug\testing.pdb
+C:\Users\gilad\Documents\Visual Studio 2015\Projects\testing\testing\bin\Debug\Newtonsoft.Json.dll
+C:\Users\gilad\Documents\Visual Studio 2015\Projects\testing\testing\bin\Debug\RapidAPISDK.dll
+C:\Users\gilad\Documents\Visual Studio 2015\Projects\testing\testing\bin\Debug\Newtonsoft.Json.xml
