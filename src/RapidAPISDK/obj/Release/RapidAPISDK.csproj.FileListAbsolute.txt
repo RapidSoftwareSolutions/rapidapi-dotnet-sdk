@@ -4,3 +4,4 @@ c:\users\gilad\documents\visual studio 2015\Projects\RapidAPISDK\RapidAPISDK\bin
 c:\users\gilad\documents\visual studio 2015\Projects\RapidAPISDK\RapidAPISDK\bin\Release\Newtonsoft.Json.xml
 c:\users\gilad\documents\visual studio 2015\Projects\RapidAPISDK\RapidAPISDK\obj\Release\RapidAPISDK.dll
 c:\users\gilad\documents\visual studio 2015\Projects\RapidAPISDK\RapidAPISDK\obj\Release\RapidAPISDK.pdb
+c:\users\gilad\documents\visual studio 2015\Projects\RapidAPISDK\RapidAPISDK\obj\Release\RapidAPISDK.csprojResolveAssemblyReference.cache
