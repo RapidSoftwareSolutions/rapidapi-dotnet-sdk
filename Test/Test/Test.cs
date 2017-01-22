@@ -12,7 +12,7 @@ namespace RapidTestTest
 
         #region Helpers
 
-        private static RapidAPI RapidApi = new RapidAPI("MyRapidTest", "e73cd25d-5f67-40a4-88fc-a4ceb99eead3");
+        private static RapidAPI RapidApi = new RapidAPI("MyRapidTest", "*****");
 
         private static Dictionary<string, object> Call(string pack, string block, params Parameter[] parameters)
         {
@@ -62,7 +62,7 @@ namespace RapidTestTest
 
         private static void TestPack()
         {
-            var apiKey = new DataParameter("apiKey", "AIzaSyCDogEcpeA84USVXMS471PDt3zsG-caYDM");
+            var apiKey = new DataParameter("apiKey", "*****");
             var str = new DataParameter("string", "מבחן");
             var targetLanguage = new DataParameter("targetLanguage", "en");
             var sourceLanguage = new DataParameter("sourceLanguage");
@@ -73,7 +73,7 @@ namespace RapidTestTest
 
         private static void TestPackWithImg(bool fromFile)
         {
-            var subscriptionKey = new DataParameter("subscriptionKey", "fa9a945249f446cd82c8628179132474");
+            var subscriptionKey = new DataParameter("subscriptionKey", "*****");
             var image = fromFile ? new FileParameter("image", "dog.jpg") : (Parameter)new DataParameter("image", "http://cdn.litlepups.net/2015/08/31/cute-dog-baby-wallpaper-hd-21.jpg");
             var width = new DataParameter("width", "50");
             var height = new DataParameter("height", "50");
@@ -91,7 +91,7 @@ namespace RapidTestTest
 
             var args = new List<Parameter>
                        {
-                           new DataParameter("subscriptionKey", "fa9a945249f446cd82c8628179132474"),
+                           new DataParameter("subscriptionKey", "*****"),
                            new FileParameter("image", stream, "nasaImage"),
                            new DataParameter("width", "50"),
                            new DataParameter("height", "50"),
