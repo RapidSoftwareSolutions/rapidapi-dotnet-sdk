@@ -29,14 +29,14 @@ Follow the steps bellow:
 
 
 ## Initialization
-Import RapidAPISDK by putting the following code in your header file
+Import RapidAPISDK by putting the following code in the head of your file
 ```cs
-  #using RapidAPISDK;
+#using RapidAPISDK;
 ```
   
 Now initialize it using:
 ```cs
-  private static RapidAPI RapidApi = new RapidAPI("PROJECT", "TOKEN");
+private static RapidAPI RapidApi = new RapidAPI("PROJECT", "TOKEN");
 ```
   
 ## Usage
@@ -44,67 +44,68 @@ Now initialize it using:
 First of all, we will prepare the body, we will use Array which You can add as many arguments as you wish due to the API requirements. 
 In this example we generated a list and send it as an array.
 ```cs
-    var body = new List<Parameter>()
-    {
-       new DataParameter("parameterName1", "value1"),
-       new FileParameter("parameterName2", "value2"),
-       new DataParameter("parameterName3", "value3")
-    };
+var body = new List<Parameter>()
+{
+   new DataParameter("parameterName1", "value1"),
+   new FileParameter("parameterName2", "value2"),
+   new DataParameter("parameterName3", "value3")
+};
  ```
  Note: You have two kinds of parameters you can send - Data or File. A File parameter can be a file stream or a file path
  and Data parameter is any other parameter.
  
 To use any block in the marketplace, just copy it's code snippet and paste it in your code. For example, the following is    the snippet for the **NasaAPI.getPictureOfTheDay** block:
  ```cs
-    try
+try
+{
+    var res = RapidApi.Call("NasaAPI", "getPictureOfTheDay", body.ToArray()).Result;
+    object payload;
+    if (res.TryGetValue("success", out payload)){
+        Console.WriteLine("success: " + payload);
+    else
     {
-        var res = RapidApi.Call("NasaAPI", "getPictureOfTheDay", body.ToArray()).Result;
-        object payload;
-        if (res.TryGetValue("success", out payload)){
-            Console.WriteLine("success: " + payload);
-        else
-        {
-            res.TryGetValue("error", out payload);
-            Console.WriteLine("error: " + payload);
-        }
+        res.TryGetValue("error", out payload);
+        Console.WriteLine("error: " + payload);
     }
-    catch (RapidAPIServerException e)
-    {
-        Console.WriteLine("Server error: " + e);
-    }
-    catch (Exception e)
-    {
-        Console.WriteLine("Unknown exeption: " + e);
-    }
+}
+catch (RapidAPIServerException e)
+{
+    Console.WriteLine("Server error: " + e);
+}
+catch (Exception e)
+{
+    Console.WriteLine("Unknown exeption: " + e);
+}
  ```
 
-    
   
 **Notice** that the `error` event will also be called if you make an invalid block call (for example - the package you refer to does not exist).
 
 ## Using Files
-Whenever a block in RapidAPI requires a file, you can either pass a URL to the file or a read stream.
+Whenever a block in RapidAPI requires a file, you can either pass a URL to the file, a path to the file or a read stream.
 
 
 #### URL
 The following code will call the block MicrosoftComputerVision.analyzeImage with a URL of an image:
-    
-  
+```cs
+var subscriptionKey = new DataParameter("subscriptionKey", "********");
+var image = new DataParameter("image", "http://cdn.litlepups.net/2015/08/31/cute-dog-baby-wallpaper-hd-21.jpg");
+var width = new DataParameter("width", "50");
+var height = new DataParameter("height", "50");
+var smartCropping = new DataParameter("smartCropping");
+
+var analyze = Call("MicrosoftComputerVision", "analyzeImage", subscriptionKey, image, width, height, smartCropping);
+```
 #### Post File
-If the file is locally stored, you can read it using `NSFileManager` and pass the read stream to the block, like the following:
-    NSData *data = [[NSFileManager defaultManager] contentsAtPath:@"path/to/the/file.jpg"];
-    
-    [rapid callPackage:@"MicrosoftComputerVision" block:@"analyzeImage"
-        withParameters:[NSDictionary dictionaryWithObjectsAndKeys:
-                        @"XXXXXXXXXXXXXXXXXXX",@"subscriptionKey",
-                        data, @"image",
-                        nil]
-               success:^(NSDictionary *responseDict) {
-        NSLog(@"%@",responseDict);
-    } failure:^(NSError *error) {
-        // error handling here ...
-        NSLog(@"%@",[error localizedDescription]);
-  
+If the file is locally stored, you can just use this line instead:
+```cs
+var image = new FileParameter("image", "IMAGE_PATH");  
+```
+Or you can post a file as a stream:
+```cs
+var image =  new FileParameter("image", stream, "IMAGE_NAME");
+```
+
 ##Issues:
 
 As this is a pre-release version of the SDK, you may expirience bugs. Please report them in the issues section to let us know. You may use the intercom chat on rapidapi.com for support at any time.
