@@ -6,15 +6,25 @@ using Newtonsoft.Json;
 using System.Net.Http.Headers;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Net.WebSockets;
+using RapidAPISDK.Events;
+using Phoenix;
 
 namespace RapidAPISDK
 {
+	
     public class RapidAPI
     {
+		public event MessageCallback OnMessage;
+		public event TimeOutCallback OnTimeOut;
+		public event ErrorCallback OnError;
+		public event ConnectCallback OnConnect;
         #region Private Static Functions
 
         private const string BaseUrl = "https://rapidapi.io/connect";
 
+		private const string WebHooksBaseUrl = "https://webhooks.rapidapi.com";
+		private const string WebSocketBaseUrl = "wss://webhooks.rapidapi.com";
         /***
         * Build a URL for a block call
         * @param pack Package where the block is
@@ -45,7 +55,8 @@ namespace RapidAPISDK
                 if (payload.GetType() == typeof(string))
                 {
                     try
-                    {
+					{
+ 
                         payloadObj = JsonConvert.DeserializeObject<object>(payload.ToString());
                     }
                     catch
@@ -84,6 +95,12 @@ namespace RapidAPISDK
 
         private readonly HttpClient _Client;
 
+		private readonly HttpClient _WebHooksClient;
+
+		private string _project;
+
+		private string _key;
+
         #endregion 
 
         #region C'tor
@@ -96,12 +113,27 @@ namespace RapidAPISDK
         */
         public RapidAPI(string project, string key)
         {
+			_project = project;
+
+			_key = key;
+
             _Client = new HttpClient();
 
             _Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("multipart/form-data"));
 
             var auth = Encoding.ASCII.GetBytes($"{project}:{key}");
+
             _Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(auth));
+
+
+			_WebHooksClient = new HttpClient();
+
+			_WebHooksClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+			var authentication = Encoding.ASCII.GetBytes($"{project}:{key}");
+
+			_WebHooksClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(auth));
+
         }
 
         #endregion
@@ -141,6 +173,51 @@ namespace RapidAPISDK
             var content = await response.Content.ReadAsStringAsync();
             return BuildResponse(content, response.IsSuccessStatusCode);
         }
+		/***
+	     * Listen for webhook events
+	     * @param pack Package of the event
+	     * @param event Name of the event
+	     * @param parameters params for API provider
+	     */
+		public void Listen(string pack, string block, params Parameter[] parameters)
+		{
+			string user_id = String.Format("{0}.{1}_{2}:{3}", pack, block, _project, _key);
+			var token = GetToken(user_id).Result;
+			string socket_url = string.Format("{0}/socket", WebSocketBaseUrl);
+			Console.Write(socket_url);
+			var param = new Newtonsoft.Json.Linq.JObject();
+			param["token"] = token;
+			var options = new Phoenix.SocketOptions()
+			{
+				Params = param
+			};
+
+			Socket socket = new Socket(socket_url,options);
+			socket.Connect();
+			var data = new Newtonsoft.Json.Linq.JObject();
+			for (int i = 0; i < parameters.Length; i++)
+			{
+				data[parameters[i].Key] = ((DataParameter)parameters[i]).Value;
+			}
+			var channel = socket.Channel("users_socket:" +token, data);
+			channel.On("new_msg", (jo, x) => OnMessage(jo["body"].ToString()));
+			channel.Join()
+			       .Receive("ok", (jo) => OnConnect())
+				   .Receive("error", (jo) => OnError(jo["body"].ToString()))
+			       .Receive("timeout", (jsonobj) => OnTimeOut())
+			               ;
+		}
+		 /***
+       * get a token from RapidAPI to use webhooks
+       * @param userID
+       */
+		private async Task<string> GetToken(string userID)
+		{
+			var response = await _WebHooksClient.GetAsync(string.Format("{0}/api/get_token?user_id={1}&user={2}&pass={3}", WebHooksBaseUrl, userID,_project,_key));
+			string content = await response.Content.ReadAsStringAsync();
+			var token = JsonConvert.DeserializeObject<RapidAPIServerResponse>(content).token;
+			return token;
+		}
 
         #endregion 
 

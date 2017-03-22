@@ -1,6 +1,19 @@
-c:\users\gilad\documents\visual studio 2015\Projects\RapidAPISDK\RapidAPISDK\bin\Debug\RapidAPISDK.dll
-c:\users\gilad\documents\visual studio 2015\Projects\RapidAPISDK\RapidAPISDK\bin\Debug\RapidAPISDK.pdb
-c:\users\gilad\documents\visual studio 2015\Projects\RapidAPISDK\RapidAPISDK\obj\Debug\RapidAPISDK.dll
-c:\users\gilad\documents\visual studio 2015\Projects\RapidAPISDK\RapidAPISDK\obj\Debug\RapidAPISDK.pdb
-c:\users\gilad\documents\visual studio 2015\Projects\RapidAPISDK\RapidAPISDK\bin\Debug\Newtonsoft.Json.dll
-c:\users\gilad\documents\visual studio 2015\Projects\RapidAPISDK\RapidAPISDK\bin\Debug\Newtonsoft.Json.xml
+c:/users/gilad/documents/visual studio 2015/Projects/RapidAPISDK/RapidAPISDK/bin/Debug/RapidAPISDK.dll
+c:/users/gilad/documents/visual studio 2015/Projects/RapidAPISDK/RapidAPISDK/bin/Debug/RapidAPISDK.pdb
+c:/users/gilad/documents/visual studio 2015/Projects/RapidAPISDK/RapidAPISDK/obj/Debug/RapidAPISDK.dll
+c:/users/gilad/documents/visual studio 2015/Projects/RapidAPISDK/RapidAPISDK/obj/Debug/RapidAPISDK.pdb
+c:/users/gilad/documents/visual studio 2015/Projects/RapidAPISDK/RapidAPISDK/bin/Debug/Newtonsoft.Json.dll
+c:/users/gilad/documents/visual studio 2015/Projects/RapidAPISDK/RapidAPISDK/bin/Debug/Newtonsoft.Json.xml
+/Users/miki.lior/rapidapi-dotnet-sdk/src/RapidAPISDK/bin/Debug/RapidAPISDK.dll
+/Users/miki.lior/rapidapi-dotnet-sdk/src/RapidAPISDK/bin/Debug/RapidAPISDK.dll.mdb
+/Users/miki.lior/rapidapi-dotnet-sdk/src/RapidAPISDK/bin/Debug/Newtonsoft.Json.dll
+/Users/miki.lior/rapidapi-dotnet-sdk/src/RapidAPISDK/bin/Debug/Newtonsoft.Json.xml
+/Users/miki.lior/rapidapi-dotnet-sdk/src/RapidAPISDK/obj/Debug/RapidAPISDK.csprojResolveAssemblyReference.cache
+/Users/miki.lior/rapidapi-dotnet-sdk/src/RapidAPISDK/obj/Debug/RapidAPISDK.dll
+/Users/miki.lior/rapidapi-dotnet-sdk/src/RapidAPISDK/obj/Debug/RapidAPISDK.dll.mdb
+/Users/miki.lior/rapidapi-dotnet-sdk/src/RapidAPISDK/bin/Debug/PhoenixSocket.dll
+/Users/miki.lior/rapidapi-dotnet-sdk/src/RapidAPISDK/bin/Debug/WebSocket4Net.dll
+/Users/miki.lior/rapidapi-dotnet-sdk/src/RapidAPISDK/bin/Debug/Phoenix.dll
+/Users/miki.lior/rapidapi-dotnet-sdk/src/RapidAPISDK/bin/Debug/websocket-sharp.dll
+/Users/miki.lior/rapidapi-dotnet-sdk/src/RapidAPISDK/bin/Debug/Phoenix.dll.mdb
+/Users/miki.lior/rapidapi-dotnet-sdk/src/RapidAPISDK/bin/Debug/websocket-sharp.xml
