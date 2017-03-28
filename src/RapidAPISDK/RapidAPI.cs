@@ -130,7 +130,6 @@ namespace RapidAPISDK
 
 			_WebHooksClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-			var authentication = Encoding.ASCII.GetBytes($"{project}:{key}");
 
 			_WebHooksClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(auth));
 
