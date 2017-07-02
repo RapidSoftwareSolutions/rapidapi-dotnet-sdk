@@ -23,8 +23,8 @@ namespace RapidAPISDK
 
         private const string BaseUrl = "https://rapidapi.io/connect";
 
-		private const string WebHooksBaseUrl = "https://webhooks.rapidapi.com";
-		private const string WebSocketBaseUrl = "wss://webhooks.rapidapi.com";
+		private const string WebHooksBaseUrl = "https://webhooks.rapidapi.io";
+		private const string WebSocketBaseUrl = "wss://webhooks.rapidapi.io";
         /***
         * Build a URL for a block call
         * @param pack Package where the block is
